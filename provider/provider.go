@@ -19,7 +19,6 @@ const intro = `
 type foo struct {}
 
 func (f foo) Foo(message string) *dbus.Error {
-	fmt.Println(f)
 	fmt.Println(message)
 	return nil
 }

@@ -22,7 +22,7 @@ def client(mes):
         print('client: No one can hear me!!')
     else:
         iface = dbus.Interface(proxy, ECHO_INTERFACE)
-        iface.echo(mes)
+        iface.Foo(mes)
 
 
 if __name__ == '__main__':
