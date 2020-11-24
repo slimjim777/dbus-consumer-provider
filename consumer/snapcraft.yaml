@@ -1,0 +1,30 @@
+name: test-consumer
+version: "1.0"
+summary: Basic dbus consumer snap
+description: A basic snap declaring a plug on dbus
+base: core18
+grade: stable
+confinement: strict
+
+plugs:
+  foo-svc:
+    bus: session
+    interface: dbus
+    name: com.hello.interface
+
+apps:
+  consumer:
+    plugs: [foo-svc]
+    command: bin/consumer
+
+parts:
+  consumer:
+    plugin: python
+    python-packages: []
+    stage-packages: [python3-dbus]
+
+  copy:
+    plugin: dump
+    source: .
+    organize:
+      consumer.py: bin/consumer

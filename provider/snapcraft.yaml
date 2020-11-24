@@ -1,0 +1,29 @@
+name: test-provider
+version: "1.0"
+summary: Basic dbus provider snap
+description: A basic snap declaring a dbus slot
+base: core18
+grade: stable
+confinement: strict
+
+slots:
+  dbus-svc:
+    interface: dbus
+    bus: session
+    name: com.hello.interface
+
+apps:
+  provider:
+    command: wrapper
+    slots: [dbus-svc]
+
+
+parts:
+  provider:
+    plugin: python
+    python-packages: []
+    stage-packages: [python3-gi, python3-dbus, gir1.2-glib-2.0]
+
+  copy:
+    plugin: dump
+    source: .
