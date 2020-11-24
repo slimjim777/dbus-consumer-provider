@@ -15,6 +15,7 @@ slots:
 apps:
   provider:
     command: wrapper
+    daemon: simple
     slots: [dbus-svc]
 
 
