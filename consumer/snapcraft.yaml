@@ -8,9 +8,9 @@ confinement: strict
 
 plugs:
   foo-svc:
-    bus: session
+    bus: system
     interface: dbus
-    name: com.hello.interface
+    name: com.hello.world.Demo
 
 apps:
   consumer:

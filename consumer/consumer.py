@@ -3,13 +3,13 @@
 # dbus includes
 import dbus
 
-ECHO_BUS_NAME = 'com.hello.world'
-ECHO_OBJECT_PATH = '/com/hello/world'
-ECHO_INTERFACE = 'com.hello.interface'
+ECHO_BUS_NAME = 'com.hello.world.Demo'
+ECHO_OBJECT_PATH = '/com/hello/world/Demo'
+ECHO_INTERFACE = 'com.hello.world.Demo'
 
 
 def client(mes):
-    bus = dbus.SessionBus()
+    bus = dbus.SystemBus()
 
     try:
         proxy = bus.get_object(ECHO_BUS_NAME, ECHO_OBJECT_PATH)
